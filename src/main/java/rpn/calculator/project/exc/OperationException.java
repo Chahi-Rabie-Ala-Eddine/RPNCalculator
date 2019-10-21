@@ -1,6 +1,8 @@
 package rpn.calculator.project.exc;
 
-public class OperationException 
+@SuppressWarnings("serial")
+
+public class OperationException extends Exception
 {
 	public OperationException()
 	{

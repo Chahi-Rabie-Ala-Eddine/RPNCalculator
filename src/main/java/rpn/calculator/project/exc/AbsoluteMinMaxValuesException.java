@@ -7,7 +7,9 @@ package rpn.calculator.project.exc;
  * @author aladin
  *
  */
-public class AbsoluteMinMaxValuesException 
+@SuppressWarnings("serial")
+
+public class AbsoluteMinMaxValuesException extends Exception
 {
 	public AbsoluteMinMaxValuesException()
 	{

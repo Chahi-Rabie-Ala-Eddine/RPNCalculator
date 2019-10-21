@@ -1,6 +1,8 @@
 package rpn.calculator.project.exc;
 
-public class DivideByZeroException 
+@SuppressWarnings("serial")
+
+public class DivideByZeroException extends Exception
 {
 	public DivideByZeroException()
 	{

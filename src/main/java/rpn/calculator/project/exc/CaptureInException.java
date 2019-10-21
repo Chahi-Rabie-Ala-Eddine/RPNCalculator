@@ -1,6 +1,8 @@
 package rpn.calculator.project.exc;
 
-public class CaptureInException 
+@SuppressWarnings("serial")
+
+public class CaptureInException extends Exception
 {
 	public CaptureInException()
 	{

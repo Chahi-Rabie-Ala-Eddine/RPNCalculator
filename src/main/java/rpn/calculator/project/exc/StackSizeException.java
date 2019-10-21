@@ -1,6 +1,8 @@
 package rpn.calculator.project.exc;
 
-public class StackSizeException 
+@SuppressWarnings("serial")
+
+public class StackSizeException extends Exception
 {
 	public StackSizeException()
 	{
