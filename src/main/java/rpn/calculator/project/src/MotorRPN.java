@@ -6,12 +6,27 @@ import rpn.calculator.project.exc.*;
 
 public class MotorRPN 
 {
-	private Stack<Double> stack = new Stack<Double> ();
+	private Stack<Double> stack;
 	private static final double MAX_VALUE = 99999, MIN_VALUE = -99999;
 		
+	public MotorRPN()
+	{
+		this.stack = new Stack<Double> ();
+	}
+	
 	public Stack<Double> getStack()
 	{
 		return this.stack;
+	}
+	
+	public double getMaxValue()
+	{
+		return MotorRPN.MAX_VALUE;
+	}
+	
+	public double getMinValue()
+	{
+		return MotorRPN.MIN_VALUE;
 	}
 	
 	public void saveOperand(double operand)

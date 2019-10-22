@@ -10,13 +10,13 @@ public class OperationTest {
 	
 	private Operation operation;
 	private boolean test = false;
-	private final static double rightOperand = 4;
+	private final static double rightOperand = 5;
 	private final static double leftOperand = 2;
 	private final static double zeroOperand = 0;
 	
 	
 	@Test
-	public void addTest() 
+	public void addOperationTest() 
 		throws DivideByZeroException
 	{
 		operation = Operation.PLUS;
@@ -25,16 +25,16 @@ public class OperationTest {
 	}
 	
 	@Test
-	public void substractTest() 
+	public void substractOperationTest() 
 		throws DivideByZeroException
 	{
 		operation = Operation.MOINS;
 		test = (operation.eval(rightOperand,leftOperand) == 2.0);
-		assertEquals(test,true);
+		assertEquals(operation.eval(rightOperand,leftOperand) == 2.0,true);
 	}
 
 	@Test
-	public void multiplyTest() 
+	public void multiplyOperationTest() 
 		throws DivideByZeroException
 	{
 		operation = Operation.MULT;
@@ -43,7 +43,7 @@ public class OperationTest {
 	}
 	
 	@Test
-	public void divideTest() 
+	public void divideOperationTest() 
 		throws DivideByZeroException
 	{
 		operation = Operation.DIV;
@@ -52,7 +52,7 @@ public class OperationTest {
 	}
 
 	@Test(expected = DivideByZeroException.class)
-	public void testDivParZero() 
+	public void DivideByZeroOperationTest() 
 		throws DivideByZeroException 
 	{
 		operation = Operation.DIV;
