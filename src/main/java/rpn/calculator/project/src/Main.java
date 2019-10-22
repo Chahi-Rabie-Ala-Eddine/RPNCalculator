@@ -8,7 +8,8 @@ public class Main
 	public static void main(String[] args) 
 		throws DivideByZeroException, AbsoluteMinMaxValuesException, StackSizeException, NumberFormatException, CaptureInException 
 	{
-		
+		CaptureRPN rpn = new CaptureRPN();
+		rpn.capture();
 	}
 
 }
