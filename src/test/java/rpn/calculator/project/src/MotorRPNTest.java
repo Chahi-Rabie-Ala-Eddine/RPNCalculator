@@ -4,9 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.*;
 
-import rpn.calculator.project.exc.AbsoluteMinMaxValuesException;
-import rpn.calculator.project.exc.DivideByZeroException;
-import rpn.calculator.project.exc.StackSizeException;
+import rpn.calculator.project.exc.*;
 
 public class MotorRPNTest 
 {

@@ -17,6 +17,11 @@ public class CaptureRPN
 		m_motor = new MotorRPN();
 	}
 	
+	public MotorRPN getMotor()
+	{
+		return this.m_motor;
+	}
+	
 	private boolean nextDouble()
 	{	
 		if (this.m_input.hasNextDouble()) 
