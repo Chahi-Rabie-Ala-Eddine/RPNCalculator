@@ -2,14 +2,14 @@ package rpn.calculator.project.src;
 
 import rpn.calculator.project.exc.*;
 
-public class Main 
+public enum CalculatorRPN 
 {
-
+	CALCULATOR;
+	
 	public static void main(String[] args) 
-		throws DivideByZeroException, AbsoluteMinMaxValuesException, StackSizeException, NumberFormatException, CaptureInException 
+		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
 	{
 		CaptureRPN rpn = new CaptureRPN();
 		rpn.capture();
 	}
-
 }

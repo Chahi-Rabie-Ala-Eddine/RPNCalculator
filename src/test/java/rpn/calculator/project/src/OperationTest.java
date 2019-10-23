@@ -20,7 +20,7 @@ public class OperationTest {
 		throws DivideByZeroException
 	{
 		operation = Operation.PLUS;
-		test=(operation.eval(rightOperand,leftOperand) == 6.0);
+		test=(operation.eval(rightOperand,leftOperand) == 7.0);
 		assertEquals(test,true);
 	}
 	
@@ -29,8 +29,8 @@ public class OperationTest {
 		throws DivideByZeroException
 	{
 		operation = Operation.MOINS;
-		test = (operation.eval(rightOperand,leftOperand) == 2.0);
-		assertEquals(operation.eval(rightOperand,leftOperand) == 2.0,true);
+		test = (operation.eval(rightOperand,leftOperand) == 3.0);
+		assertEquals(test,true);
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class OperationTest {
 		throws DivideByZeroException
 	{
 		operation = Operation.MULT;
-		test = (operation.eval(rightOperand,leftOperand) == 8.0);
+		test = (operation.eval(rightOperand,leftOperand) == 10.0);
 		assertEquals(test,true);
 	}
 	
@@ -47,7 +47,7 @@ public class OperationTest {
 		throws DivideByZeroException
 	{
 		operation = Operation.DIV;
-		test = (operation.eval(rightOperand,leftOperand) == 2.0);
+		test = (operation.eval(rightOperand,leftOperand) == 2.5);
 		assertEquals(test,true);
 	}
 
@@ -58,5 +58,4 @@ public class OperationTest {
 		operation = Operation.DIV;
 		operation.eval(rightOperand,zeroOperand);
 	}	
-
 }
