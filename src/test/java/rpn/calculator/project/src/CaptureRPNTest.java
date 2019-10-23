@@ -12,7 +12,7 @@ public class CaptureRPNTest
 {
 	private CaptureRPN capture;
 	private boolean test = false;
-	private final static char operand = '4';
+	private final static String operand = "4";
 	private final static String carriageReturn = "\n";
 	private final static String exit = "exit";
 	
@@ -26,7 +26,7 @@ public class CaptureRPNTest
 	    systemInMock.provideLines(operand + carriageReturn + exit);
 	    capture = new CaptureRPN();
 	    capture.capture();
-	    test = (capture.getMotor().getStack().pop() == 4.0);
+	    test = (capture.getMotor().getStack().pop() == Double.parseDouble(operand));
 		assertEquals(test,true);
 	}
 	  
