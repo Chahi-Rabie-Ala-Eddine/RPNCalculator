@@ -64,10 +64,10 @@ public class MotorRPN
 
 		for (Double operand : list) 
 		{
-		    stack+= "                         | " + operand + " |\n";
+		    stack+= "                           | " + operand + " |\n";
 		}
 
-		return stack + "\n                     Stack : Size[" + this.stack.size() + "]";	
+		return stack + "\n                    📚 Stack : 📏Size[" + this.stack.size() + "]";	
 	}
 	
 	public String toString()
