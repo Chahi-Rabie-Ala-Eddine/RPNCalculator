@@ -6,6 +6,6 @@ public class DivideByZeroException extends Exception
 {
 	public DivideByZeroException()
 	{
-	    System.out.println("U are dividing by zéro 😟 !");
+	    System.err.println("\n\n                   ⚠️ U are dividing by zéro ⚠️");
 	}
 }

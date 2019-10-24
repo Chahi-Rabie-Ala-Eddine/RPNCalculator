@@ -6,6 +6,6 @@ public class StackSizeException extends Exception
 {
 	public StackSizeException()
 	{
-	    System.out.println("There is no second operand 😟 !");
+	    System.err.println("\n\n                 ⚠️ There is no second operand ⚠️");
 	}
 }

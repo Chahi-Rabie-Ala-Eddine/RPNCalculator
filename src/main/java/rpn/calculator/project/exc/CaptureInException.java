@@ -6,6 +6,6 @@ public class CaptureInException extends Exception
 {
 	public CaptureInException()
 	{
-		System.out.println("Your keyboard input is wrong \n");
+		System.err.println("\n\n                 ⚠️ Your ⌨️ input is wrong ⚠️\n");
 	}
 }

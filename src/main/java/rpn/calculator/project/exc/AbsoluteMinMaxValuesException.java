@@ -3,6 +3,8 @@
  */
 package rpn.calculator.project.exc;
 
+import rpn.calculator.project.src.MotorRPN;
+
 /**
  * @author aladin
  *
@@ -11,8 +13,11 @@ package rpn.calculator.project.exc;
 
 public class AbsoluteMinMaxValuesException extends Exception
 {
+	MotorRPN motor = new MotorRPN();
+	
 	public AbsoluteMinMaxValuesException()
 	{
-	    System.out.println("U are outside the limits of this calculator 😟 !");
-	}  
+	    System.err.println("\n\n       ⚠️ U are outside the limits of this calculator ⚠️\n                        🔵MAX =  " + motor.getMaxValue() + "\n                        🔴MIN = " + motor.getMinValue());                        
+	}
+	
 }

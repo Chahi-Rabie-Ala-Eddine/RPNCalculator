@@ -16,7 +16,7 @@ public class MotorRPNTest
 	private final static double zeroOperand = 0;
 
 	@Before
-	public void setUp() 
+	public void init() 
 	{
 		motor = new MotorRPN();
 	}
@@ -171,4 +171,9 @@ public class MotorRPNTest
 		motor.applicateOperation(Operation.DIV);
 	}
 	
+	@After
+	public void clean()
+	{
+		motor = null;
+	}
 }

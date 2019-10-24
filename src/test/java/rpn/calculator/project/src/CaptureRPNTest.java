@@ -124,6 +124,33 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 
+	@Test (expected = StackSizeException.class)
+	public void captureAdditionStackSizeTest() 
+		throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
+	{
+		systemInMock.provideLines(operand_one + carriageReturn + minus);
+	    capture = new CaptureRPN();
+	    capture.capture();
+	}
+	
+	@Test (expected = StackSizeException.class)
+	public void captureSubstractStackSizeTest() 
+		throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
+	{
+		systemInMock.provideLines(operand_one + carriageReturn + times);
+	    capture = new CaptureRPN();
+	    capture.capture();
+	}
+	
+	@Test (expected = StackSizeException.class)
+	public void captureMultiplyStackSizeTest() 
+		throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
+	{
+		systemInMock.provideLines(operand_one + carriageReturn + per);
+	    capture = new CaptureRPN();
+	    capture.capture();
+	}
+	
 	@Test (expected = DivideByZeroException.class)
 	public void captureDivideByZeroTest() 
 		throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -153,5 +180,13 @@ public class CaptureRPNTest
 	    capture.capture();
 	}
 	
+	
+	
+	@After
+	public void clean()
+	{
+		motorMaxMin = null;
+		capture = null;
+	}
 	
 }
