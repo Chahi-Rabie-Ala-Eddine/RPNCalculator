@@ -4,31 +4,60 @@ import java.util.*;
 
 import rpn.calculator.project.exc.*;
 
+/**
+ * This class manages the arithmetic expressions
+ * @author CHAHI Rabie Ala Eddine
+ * @version 1.0
+ */
 public class MotorRPN 
 {
+	/**
+	 * The scanner that will be used to manage inputs
+	 */
 	private Stack<Double> stack;
+	
+	/**
+	 * The Maximum and the Minimum values accepted by this calculator
+	 */
 	private static final double MAX_VALUE = 99999, MIN_VALUE = -99999;
-		
+	
+	/**
+	 * CaptureRPN Constructor
+	 */
 	public MotorRPN()
 	{
-		this.stack = new Stack<Double> ();
+		this.stack = new Stack<Double>();
 	}
 	
+	/**
+	 * MotorRPN stack's getter
+	 */
 	public Stack<Double> getStack()
 	{
 		return this.stack;
 	}
 	
+	/**
+	 * MotorRPN minimum value's getter
+	 */
 	public double getMaxValue()
 	{
 		return MotorRPN.MAX_VALUE;
 	}
 	
+	/**
+	 * MotorRPN maximum value's getter
+	 */
 	public double getMinValue()
 	{
 		return MotorRPN.MIN_VALUE;
 	}
-	
+		
+	/**
+	 * Push the operand in the stack until it is between Max and Min value
+	 * @param operand
+	 * @throws AbsoluteMinMaxValuesException
+	 */
 	public void saveOperand(double operand)
 		throws AbsoluteMinMaxValuesException
 	{
@@ -38,6 +67,13 @@ public class MotorRPN
 		this.stack.push(operand);
 	}
 	
+	/**
+	 * manage an operation to the two firsts operands in the stack
+	 * @param opr
+	 * @throws AbsoluteMinMaxValuesException
+	 * @throws DivideByZeroException
+	 * @throws StackSizeException
+	 */
 	public void applicateOperation(Operation opr)
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException
 	{
@@ -49,6 +85,10 @@ public class MotorRPN
 		saveOperand(opr.eval(right_operand, left_operand));
 	}
 	
+	/**
+	 * Show operands of the actual stack
+	 * @return String
+	 */
 	public String showOperand()
 	{	
 		Iterator<Double> iterator = this.stack.iterator();
@@ -70,6 +110,10 @@ public class MotorRPN
 		return stack + "\n                    📚 Stack : 📏Size[" + this.stack.size() + "]";	
 	}
 	
+	/**
+	 * Re-implementation of toString in order the describe the actual issue of the motor
+	 * @return
+	 */
 	public String toString()
 	{
 		return "Motor RPN description :\n\n     Actual Stack \n\n" + this.showOperand() + "\nMaximum value supported : " + MAX_VALUE + "\nMinimmum value supported : " + MIN_VALUE;

@@ -8,8 +8,16 @@ import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
 
 import rpn.calculator.project.exc.*;
 
+/**
+ * This test class manages tests of the CaptureRPN class
+ * @author CHAHI Rabie Ala Eddine
+ * @version 1.0
+ */
 public class CaptureRPNTest 
 {
+	/**
+	 * Attributes needed to succeed tests
+	 */
 	private static MotorRPN motorMaxMin = new MotorRPN();
 	private CaptureRPN capture;
 	private boolean test = false;
@@ -24,12 +32,16 @@ public class CaptureRPNTest
 	private final static String per = "/";
 	private final static String carriageReturn = "\n";
 	private final static String exit = "exit";
-
 	
+	/**
+	 * Initialization of the SIS
+	 */
 	@Rule
 	public final TextFromStandardInputStream systemInMock = emptyStandardInputStream();
 	
-	// insertion d'un élément dans la pile
+	/**
+	 * Test the capture of one element
+	 */
 	@Test
 	public void captureDoubleOneElementTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -41,7 +53,9 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 		
-	//insertion de deux élement dans la pile test le premier pop
+	/**
+	 * Test the capture of two elements by evaluate the stack's head
+	 */
 	@Test
 	public void captureFirstElementTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -53,7 +67,9 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 	
-	//insertion de deux élement dans la pile test le deuxieme pop
+	/**
+	 * Test the capture of two elements by evaluate the stack's second element
+	 */
 	@Test
 	public void captureSecondElementTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -66,7 +82,9 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 	
-	//insertion de deux éléments test 
+	/**
+	 * Test the capture of two elements
+	 */
 	@Test
 	public void captureTwoElementTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -80,6 +98,9 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 	
+	/**
+	 * Test the capture of an addition
+	 */
 	@Test
 	public void captureAdditionTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -91,6 +112,9 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 
+	/**
+	 * Test the capture of a subtraction
+	 */
 	@Test
 	public void captureSubstractTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -102,6 +126,9 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 
+	/**
+	 * Test the capture of a multiplication
+	 */
 	@Test
 	public void captureMultiplyTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -113,6 +140,9 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 
+	/**
+	 * Test the capture of a division
+	 */
 	@Test
 	public void captureDivideTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -124,6 +154,9 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 
+	/**
+	 * Test the StacksizeException by the capture of an addition with only one operand
+	 */
 	@Test (expected = StackSizeException.class)
 	public void captureAdditionStackSizeTest() 
 		throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -133,6 +166,9 @@ public class CaptureRPNTest
 	    capture.capture();
 	}
 	
+	/**
+	 * Test the StacksizeException by the capture of a subtraction with only one operand
+	 */
 	@Test (expected = StackSizeException.class)
 	public void captureSubstractStackSizeTest() 
 		throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -142,6 +178,9 @@ public class CaptureRPNTest
 	    capture.capture();
 	}
 	
+	/**
+	 * Test the StacksizeException by the capture of a multiplication with only one operand
+	 */
 	@Test (expected = StackSizeException.class)
 	public void captureMultiplyStackSizeTest() 
 		throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -151,6 +190,9 @@ public class CaptureRPNTest
 	    capture.capture();
 	}
 	
+	/**
+	 * Test the StacksizeException by the capture of a division with only one operand
+	 */
 	@Test (expected = DivideByZeroException.class)
 	public void captureDivideByZeroTest() 
 		throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -162,6 +204,10 @@ public class CaptureRPNTest
 		assertEquals(test,true);
 	}
 	
+	/**
+	 * Test the AbsoluteMinMaxValuesException by the capture of a bigger number 
+	 * than the Max value supported by this calculator
+	 */
 	@Test (expected = AbsoluteMinMaxValuesException.class)
 	public void captureMinimumTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -171,6 +217,10 @@ public class CaptureRPNTest
 	    capture.capture();
 	}
 
+	/**
+	 * Test the AbsoluteMinMaxValuesException by the capture of a smaller number 
+	 * than the Min value supported by this calculator
+	 */
 	@Test (expected = AbsoluteMinMaxValuesException.class)
 	public void CaptureMaximumTest() 
 		throws AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException 
@@ -180,8 +230,9 @@ public class CaptureRPNTest
 	    capture.capture();
 	}
 	
-	
-	
+	/**
+	 * Clean the dynamic allocations
+	 */
 	@After
 	public void clean()
 	{

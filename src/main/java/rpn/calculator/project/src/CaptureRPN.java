@@ -5,23 +5,49 @@ import java.util.regex.Pattern;
 
 import rpn.calculator.project.exc.*;
 
+/**
+ * This class manages user's input keyboards
+ * @author CHAHI Rabie Ala Eddine
+ * @version 1.0
+ */
 public class CaptureRPN 
 {
+	/**
+	 * The scanner that will be used to manage inputs
+	 */
 	private Scanner m_input;
+	
+	/**
+	 * The MotorRPN that will be used to manage operations
+	 */
 	private MotorRPN m_motor;
+	
+	/**
+	 * A list which will be used to print arithmetic expressions
+	 */
 	private ArrayList<Object> list = new ArrayList<Object>();
 	
+	/**
+	 * CaptureRPN Constructor
+	 */
 	public CaptureRPN()
 	{
 		m_input = new Scanner(System.in);
 		m_motor = new MotorRPN();
 	}
 	
+	/**
+	 * CaptureRPN motor's getter
+	 */
 	public MotorRPN getMotor()
 	{
 		return this.m_motor;
 	}
 	
+	/**
+	 * Test if the next input is a double or not
+	 * @return True or False
+	 */
 	private boolean nextDouble()
 	{	
 		if (this.m_input.hasNextDouble()) 
@@ -30,11 +56,21 @@ public class CaptureRPN
 		return false;
 	}
 	
+	/**
+	 * Test if a input is a character or not 
+	 * @param character
+	 * @return True or False
+	 */
 	private static boolean isCharacter(char character)
 	{
 		return (character >= 48 && character <= 57); 
 	}
 	
+	/**
+	 * Test if a input is a double or not
+	 * @param str
+	 * @return True or False
+	 */
 	private boolean isDouble(String str)
 	{
 		String regexDecimal = "^[-+]?\\d*\\.\\d+$";
@@ -47,6 +83,11 @@ public class CaptureRPN
 		return false;
 	}
 	
+	/**
+	 * Test if a string is an operation or not
+	 * @param str
+	 * @return Operation or False
+	 */
 	private Object isOperation(String str)
 	{
 		for(Operation op : Operation.values())
@@ -60,6 +101,11 @@ public class CaptureRPN
 		return false;
 	}
 	
+	/**
+	 * Attribute operation as soon as the input is an appropriate operation
+	 * @param str
+	 * @return Operation or null
+	 */
 	private Operation attributeOperation(String str)
 	{
 		Object temp = isOperation(str);
@@ -71,6 +117,10 @@ public class CaptureRPN
 			 return (Operation) temp;
 	}
 	
+	/**
+	 * Print the postfix notation of the actual arithmetic expression
+	 * @return String
+	 */
 	private String postfixNotation()
 	{
 		String m_postfixeNotation = "";
@@ -83,6 +133,11 @@ public class CaptureRPN
 		return m_postfixeNotation;
 	}
 	
+	/**
+	 * Print the infix notation of the actual arithmetic expression
+	 * @param str
+	 * @return String
+	 */
 	static String infixNotation(String str) 
 	{ 
 	    Stack<String> stack = new Stack<String>(); 
@@ -105,6 +160,14 @@ public class CaptureRPN
 	    return stack.peek(); 
 	} 
 	
+	/**
+	 * The main method of this class, it manage the capture of the user
+	 * @throws NumberFormatException
+	 * @throws AbsoluteMinMaxValuesException
+	 * @throws DivideByZeroException
+	 * @throws StackSizeException
+	 * @throws CaptureInException
+	 */
 	public void capture() throws NumberFormatException, AbsoluteMinMaxValuesException, DivideByZeroException, StackSizeException, CaptureInException
 	{
 		System.out.println("🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶RPN CALCULATOR 💡🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷\n🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷🔶🔷");
