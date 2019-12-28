@@ -6,7 +6,7 @@
 
 This program implements an RPN calculator
 
-## usability : 
+## Usability : 
 
 You can add, subtract, multiply and divide numbers contained in a stack that manages the calculation process.
 
@@ -14,7 +14,7 @@ You can add, subtract, multiply and divide numbers contained in a stack that man
 
 This way of writing arithmetic expressions is relatively intuitive and therefore allows you to write these expressions postfixically
 
-## application : 
+## Application : 
 
 This calculator performs the calculations according to the FILO input order of a stack, displays the current state of the stack at each step, the postfix and infix notation of the current arithmetic expression, and the overall result.
 
